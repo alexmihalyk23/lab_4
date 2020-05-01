@@ -1,0 +1,16 @@
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\bin\Debug\Jija.exe.config
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\bin\Debug\Jija.exe
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\bin\Debug\Jija.pdb
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\Jija.csprojAssemblyReference.cache
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\MainWindow.g.cs
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\App.g.cs
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\Jija_MarkupCompile.cache
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\Jija_MarkupCompile.lref
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\MainWindow.baml
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\Jija.g.resources
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\Jija.Properties.Resources.resources
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\Jija.csproj.GenerateResource.cache
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\Jija.exe
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\Jija.pdb
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\Views\MainWindow.g.cs
+C:\Users\MrPar\Desktop\Полагаич\Jija\Jija\obj\Debug\Views\Page1.g.cs

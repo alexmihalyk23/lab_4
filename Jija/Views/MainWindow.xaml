@@ -1,0 +1,16 @@
+﻿<Window x:Class="Jija.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jija"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <TextBox Text="{Binding login,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="0" TextWrapping="Wrap"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"/>
+        <TextBox Text="{Binding password,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="336,226,336,170" TextWrapping="Wrap"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"/>
+        <Button Command="{Binding Login}" Content="Войти" HorizontalAlignment="Left" Margin="336,263,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Регистрация" HorizontalAlignment="Left" Margin="336,288,0,0" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>
