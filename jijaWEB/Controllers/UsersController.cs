@@ -1,16 +1,10 @@
-﻿using System;
+﻿using jijaWEB.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using jijaWEB.Data;
-using AspNet.Security.OpenIdConnect.Primitives;
-using OpenIddict.Abstractions;
-using AspNet.Security.OpenIdConnect.Server;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 
 namespace jijaWEB.Controllers
 {
@@ -29,16 +23,16 @@ namespace jijaWEB.Controllers
         [HttpGet, Authorize]
         public IEnumerable<Users> GetUsers()
         {
-            
 
-            
+
+
             if (_context.Users != null && _context.Role != null)
-                    return _context.Users;
+                return _context.Users;
             return _context.Users;
         }
 
         // GET: api/Users/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), Authorize]
         public async Task<IActionResult> GetUsers([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -57,7 +51,7 @@ namespace jijaWEB.Controllers
         }
 
         // PUT: api/Users/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize]
         public async Task<IActionResult> PutUsers([FromRoute] int id, [FromBody] Users users)
         {
             if (!ModelState.IsValid)
@@ -93,8 +87,8 @@ namespace jijaWEB.Controllers
 
 
 
-                // POST: api/Users
-                [HttpPost]
+        // POST: api/Users
+        [HttpPost, Authorize]
         public async Task<IActionResult> PostUsers([FromBody] Users users)
         {
             if (!ModelState.IsValid)
@@ -109,7 +103,7 @@ namespace jijaWEB.Controllers
         }
 
         // DELETE: api/Users/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize]
         public async Task<IActionResult> DeleteUsers([FromRoute] int id)
         {
             if (!ModelState.IsValid)

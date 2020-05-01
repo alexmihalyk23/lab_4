@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using YandexTranslate.Commands;
 
 namespace YandexTranslate.ViewModels
 {
     class MainViewModel : BaseViewModel
     {
-   
+
         private string _password;
 
         public string password
@@ -56,7 +50,7 @@ namespace YandexTranslate.ViewModels
             }
 
         }
-        
+
 
     }
 }

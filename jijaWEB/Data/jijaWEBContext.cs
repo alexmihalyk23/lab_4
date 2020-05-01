@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using jijaWEB.Data;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace jijaWEB.Data
 {
     public class jijaWEBContext : DbContext
     {
-        public jijaWEBContext (DbContextOptions<jijaWEBContext> options)
+        public jijaWEBContext(DbContextOptions<jijaWEBContext> options)
             : base(options)
         {
         }

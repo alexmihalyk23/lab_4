@@ -1,11 +1,10 @@
-﻿using System;
+﻿using jijaWEB.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using jijaWEB.Data;
 
 namespace jijaWEB.Controllers
 {
@@ -21,14 +20,14 @@ namespace jijaWEB.Controllers
         }
 
         // GET: api/Roles
-        [HttpGet]
+        [HttpGet, Authorize]
         public IEnumerable<Role> GetRole()
         {
             return _context.Role;
         }
 
         // GET: api/Roles/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), Authorize]
         public async Task<IActionResult> GetRole([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -47,7 +46,7 @@ namespace jijaWEB.Controllers
         }
 
         // PUT: api/Roles/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize]
         public async Task<IActionResult> PutRole([FromRoute] int id, [FromBody] Role role)
         {
             if (!ModelState.IsValid)
@@ -82,40 +81,40 @@ namespace jijaWEB.Controllers
         }
 
         // POST: api/Roles
-        [HttpPost]
-        public async Task<IActionResult> PostRole([FromBody] Role role)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //[HttpPost]
+        //public async Task<IActionResult> PostRole([FromBody] Role role)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            _context.Role.Add(role);
-            await _context.SaveChangesAsync();
+        //    _context.Role.Add(role);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRole", new { id = role.id }, role);
-        }
+        //    return CreatedAtAction("GetRole", new { id = role.id }, role);
+        //}
 
         // DELETE: api/Roles/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRole([FromRoute] int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeleteRole([FromRoute] int id)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            var role = await _context.Role.FindAsync(id);
-            if (role == null)
-            {
-                return NotFound();
-            }
+        //    var role = await _context.Role.FindAsync(id);
+        //    if (role == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.Role.Remove(role);
-            await _context.SaveChangesAsync();
+        //    _context.Role.Remove(role);
+        //    await _context.SaveChangesAsync();
 
-            return Ok(role);
-        }
+        //    return Ok(role);
+        //}
 
         private bool RoleExists(int id)
         {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8pgHkkO8NEPID0Hrhha6/ZDsrAW9gAklixiQE+JQkfF2ORvYdlT6n1QZWxgHjQgJakw9qtjaYBmdCB5PTk91VA==",
+  "dgSpecHash": "FjU2lrdHXwazoLPpXlTMvOel6A+bk5bgLg3KfQ4rhGCv0JG6mX+P84pV5hIhjdcdDek8LNyM/Rf7Oosu7grPvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexm\\Source\\Repos\\lab_4\\jijaWEB\\jijaWEB.csproj",
+  "projectFilePath": "C:\\Users\\alexm\\Source\\Repos\\alexmihalyk23\\lab_4\\jijaWEB\\jijaWEB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexm\\.nuget\\packages\\aspnet.security.oauth.validation\\2.0.0\\aspnet.security.oauth.validation.2.0.0.nupkg.sha512",
     "C:\\Users\\alexm\\.nuget\\packages\\aspnet.security.openidconnect.extensions\\2.0.0\\aspnet.security.openidconnect.extensions.2.0.0.nupkg.sha512",

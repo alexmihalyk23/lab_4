@@ -1,11 +1,10 @@
-﻿using System;
+﻿using jijaWEB.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using jijaWEB.Data;
 
 namespace jijaWEB.Controllers
 {
@@ -47,7 +46,7 @@ namespace jijaWEB.Controllers
         }
 
         // PUT: api/Goods/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize]
         public async Task<IActionResult> PutGoods([FromRoute] int id, [FromBody] Goods goods)
         {
             if (!ModelState.IsValid)
@@ -82,7 +81,7 @@ namespace jijaWEB.Controllers
         }
 
         // POST: api/Goods
-        [HttpPost]
+        [HttpPost, Authorize]
         public async Task<IActionResult> PostGoods([FromBody] Goods goods)
         {
             if (!ModelState.IsValid)
@@ -97,7 +96,7 @@ namespace jijaWEB.Controllers
         }
 
         // DELETE: api/Goods/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize]
         public async Task<IActionResult> DeleteGoods([FromRoute] int id)
         {
             if (!ModelState.IsValid)

@@ -1,15 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using jijaWEB.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using jijaWEB.Data;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace jijaWEB
 {
@@ -41,8 +41,8 @@ namespace jijaWEB
         {
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
-               var serverSecret = new SymmetricSecurityKey(Encoding.UTF8.
-                   GetBytes(Configuration["JWT:key"]));
+                var serverSecret = new SymmetricSecurityKey(Encoding.UTF8.
+                    GetBytes(Configuration["JWT:key"]));
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     IssuerSigningKey = serverSecret,
@@ -54,8 +54,8 @@ namespace jijaWEB
 
             services.AddDbContext<jijaWEBContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("jijaWEBContext")));
-            
-      
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,7 +74,7 @@ namespace jijaWEB
 
             app.UseHttpsRedirection();
             app.UseMvc();
-            
+
         }
     }
 }

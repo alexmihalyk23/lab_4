@@ -15,7 +15,7 @@ namespace YandexTranslate.Commands
         {
             this._executeMethod = executeMethod;
         }
-        public DelegateCommand(Action executeMethod,Func<bool> canExecute)
+        public DelegateCommand(Action executeMethod, Func<bool> canExecute)
         {
             this._executeMethod = executeMethod;
             this._canExecuteMethod = canExecute;

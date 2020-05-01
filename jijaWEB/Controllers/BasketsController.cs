@@ -1,11 +1,10 @@
-﻿using System;
+﻿using jijaWEB.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using jijaWEB.Data;
 
 namespace jijaWEB.Controllers
 {
@@ -21,14 +20,14 @@ namespace jijaWEB.Controllers
         }
 
         // GET: api/Baskets
-        [HttpGet]
+        [HttpGet, Authorize]
         public IEnumerable<Basket> GetBasket()
         {
             return _context.Basket;
         }
 
         // GET: api/Baskets/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), Authorize]
         public async Task<IActionResult> GetBasket([FromRoute] int id)
         {
             if (!ModelState.IsValid)

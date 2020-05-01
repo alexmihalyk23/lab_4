@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using jijaWEB.Data;
-using Microsoft.Extensions.Configuration;
+﻿using jijaWEB.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Text;
 
 namespace jijaWEB.Controllers
@@ -45,6 +41,9 @@ namespace jijaWEB.Controllers
         }
         private string BuildToken(UserModel user)
         {
+
+
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
@@ -75,7 +74,7 @@ namespace jijaWEB.Controllers
                 }
                 catch (System.InvalidOperationException ex)
                 {
-                    Console.WriteLine("Неверный логин или пароль");
+                    Unauthorized();
                 }
             }
             return user;

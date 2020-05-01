@@ -12977,11 +12977,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexm\\Source\\Repos\\lab_4\\jijaWEB\\jijaWEB.csproj",
+      "projectUniqueName": "C:\\Users\\alexm\\Source\\Repos\\alexmihalyk23\\lab_4\\jijaWEB\\jijaWEB.csproj",
       "projectName": "jijaWEB",
-      "projectPath": "C:\\Users\\alexm\\Source\\Repos\\lab_4\\jijaWEB\\jijaWEB.csproj",
+      "projectPath": "C:\\Users\\alexm\\Source\\Repos\\alexmihalyk23\\lab_4\\jijaWEB\\jijaWEB.csproj",
       "packagesPath": "C:\\Users\\alexm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexm\\Source\\Repos\\lab_4\\jijaWEB\\obj\\",
+      "outputPath": "C:\\Users\\alexm\\Source\\Repos\\alexmihalyk23\\lab_4\\jijaWEB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alexm\\AppData\\Roaming\\NuGet\\NuGet.Config",
