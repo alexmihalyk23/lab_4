@@ -43,9 +43,9 @@ namespace jijaWEB.Data
             get { return _mail; }
             set { _mail = value; }
         }
-        private int _id_role;
+        private string _id_role;
 
-        public int id_role
+        public string id_role
         {
             get { return _id_role; }
             set { _id_role = value; }

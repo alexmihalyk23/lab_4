@@ -20,7 +20,7 @@ namespace jijaWEB.Controllers
         }
 
         // GET: api/Users
-        [HttpGet, Authorize]
+        [HttpGet, Authorize(Roles = "1")]
         public IEnumerable<Users> GetUsers()
         {
 

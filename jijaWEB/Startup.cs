@@ -39,23 +39,28 @@ namespace jijaWEB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            var serverSecret = Encoding.UTF8.GetBytes(Configuration["JWT:key"]);
+            services.AddAuthentication(x =>
             {
-                var serverSecret = new SymmetricSecurityKey(Encoding.UTF8.
-                    GetBytes(Configuration["JWT:key"]));
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    IssuerSigningKey = serverSecret,
-                    ValidIssuer = Configuration["JWT:Issuer"],
-                    ValidAudience = Configuration["JWT:Audience"]
-                };
-            });
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+         .AddJwtBearer(x =>
+         {
+             x.RequireHttpsMetadata = false;
+             x.SaveToken = true;
+             x.TokenValidationParameters = new TokenValidationParameters
+             {
+                 ValidateIssuerSigningKey = true,
+                 IssuerSigningKey = new SymmetricSecurityKey(serverSecret),
+                 ValidateIssuer = false,
+                 ValidateAudience = false
+             };
+         });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<jijaWEBContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("jijaWEBContext")));
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

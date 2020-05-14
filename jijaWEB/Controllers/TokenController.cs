@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 
 namespace jijaWEB.Controllers
@@ -41,35 +42,35 @@ namespace jijaWEB.Controllers
         }
         private string BuildToken(UserModel user)
         {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, user.login),
+                    new Claim(ClaimTypes.Role, user.Role)
+                }),
 
+                Expires = DateTime.Now.AddMinutes(30),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            Console.WriteLine("huy" + tokenDescriptor.Subject.ToString());
+            var token = tokenHandler.CreateToken(tokenDescriptor);
 
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-              _config["Jwt:Issuer"],
-              expires: DateTime.Now.AddMinutes(30),
-              signingCredentials: creds);
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return tokenHandler.WriteToken(token);
         }
         private UserModel Authenticate(Users login)
         {
             UserModel user = null;
-            var _users = _context.Users.OrderBy(u => u.login).Select(u => new { lgn = u.login, pswd = u.password });
+            var _users = _context.Users.OrderBy(u => u.login).Select(u => new { lgn = u.login, pswd = u.password, rol = u.id_role });
             foreach (var usr in _users)
             {
-
-
                 try
                 {
-
                     if (login.login == usr.lgn && login.password == usr.pswd)
                     {
-
-
-                        user = new UserModel { login = usr.lgn, password = usr.pswd };
+                        user = new UserModel { login = usr.lgn, password = usr.pswd, Role = usr.rol};
                     }
                 }
                 catch (System.InvalidOperationException ex)
@@ -83,6 +84,8 @@ namespace jijaWEB.Controllers
         {
             public string login { get; set; }
             public string password { get; set; }
+
+            public string Role { get; set; }
         }
     }
 }
